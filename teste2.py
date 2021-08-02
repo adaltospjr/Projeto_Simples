@@ -28,7 +28,6 @@ lista_dois = []
 
 conn.close()
 
-
 app = Flask(__name__)
 
 @app.route('/')
