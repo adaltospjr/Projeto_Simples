@@ -46,6 +46,16 @@ conn.commit()
 
 conn.close()
 
+class Usuario:
+    def __init__(self, nome, departamento):
+        self.nome = nome
+        self.departamento = departamento
+
+    def set_usuario(self, pessoa):
+        pass
+
+
+'''
 app = Flask(__name__)
 
 @app.route('/')
@@ -57,3 +67,4 @@ def ola():
     return render_template('lista.html', titulo='Usuários', nomes=lista_dois, departamento=lista_um)
 
 app.run(debug=True)
+'''
