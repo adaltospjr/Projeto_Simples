@@ -46,7 +46,6 @@ conn.commit()
 
 conn.close()
 
-
 app = Flask(__name__)
 
 @app.route('/')

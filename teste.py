@@ -23,4 +23,3 @@ def ola():
     return render_template('lista.html', titulo='Usuários', nomes=lista)
 
 app.run(debug=True)
-
