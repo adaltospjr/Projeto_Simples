@@ -9,24 +9,42 @@ password = "123456"
 
 conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
 
-cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+#cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-#cur.execute("CREATE TABLE student (id SERIAL PRIMARY KEY, name VARCHAR);")
+teste = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-#cur.execute("INSERT INTO student (name) VALUES(%s)", ("Beatriz",))
+#cur.execute("CREATE TABLE student (id SERIAL PRIMARY KEY, name VARCHAR, departamento VARCHAR);")
 
-cur.execute("SELECT * FROM student;")
+#teste.execute("CREATE TABLE empresa  (id SERIAL PRIMARY KEY, name VARCHAR, departamento VARCHAR);")
 
-#print(cur.fetchall())
+#teste.execute("INSERT INTO empresa (name) VALUES(%s)", ("Beatriz",))
+#teste.execute("INSERT INTO empresa (departamento) VALUES(%s)", ("RH",))
 
-lista = [cur.fetchall()]
+'''
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Beatriz", "RH"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Amilton", "ADM"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Guilherme", "TI"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Ana", "TI"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Mauricio", "BI"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Andreia", "RH"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Carlos", "ADM"))
+'''
+
+#teste.execute('TRUNCATE TABLE empresa')
+
+teste.execute("SELECT * FROM empresa;")
+
+#print(teste.fetchall())
+
+lista = [teste.fetchall()]
 lista_dois = []
 
-#cur.fetchall()
+#teste.fetchall()
 
-#conn.commit()
+conn.commit()
 
 conn.close()
+
 
 app = Flask(__name__)
 
