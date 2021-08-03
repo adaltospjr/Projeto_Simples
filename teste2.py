@@ -38,6 +38,7 @@ teste.execute("SELECT * FROM empresa;")
 
 lista = [teste.fetchall()]
 lista_dois = []
+lista_um = []
 
 #teste.fetchall()
 
@@ -52,7 +53,8 @@ app = Flask(__name__)
 def ola():
     for i in lista:
         for y in i:
+            lista_um.append(y[2])
             lista_dois.append(y[1])
-    return render_template('lista.html', titulo='Usuários', nomes=lista_dois)
+    return render_template('lista.html', titulo='Usuários', nomes=lista_dois, departamento=lista_um)
 
 app.run(debug=True)
