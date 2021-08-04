@@ -37,12 +37,15 @@ teste.execute("SELECT * FROM empresa;")
 #print(teste.fetchall())
 
 lista = [teste.fetchall()]
-lista_dois = []
-lista_um = []
+lista_programa = []
+dicionario = {}
 
 conn.commit()
 
 conn.close()
+
+for x in dicionario:
+    print(dicionario[x])
 
 class Usuario:
     def __init__(self):
@@ -50,28 +53,23 @@ class Usuario:
         self.departamento = []
 
     def set_usuario(self, pessoa):
-        for i in pessoa:
-            for x in i:
-                for y in x:
-                    self.nome.append(y)
+        for x in pessoa:
+            for y in x:
+                dicionario[y[1]] = y[2]
+            self.nome.append(dicionario)
 
     def get_usuario(self):
-        print(self.nome)
+        return self.nome
 
 pessoa1 = Usuario()
 pessoa1.set_usuario(lista)
-pessoa1.get_usuario()
+teste = pessoa1.get_usuario()
+print(teste)
 
-'''
 app = Flask(__name__)
 
 @app.route('/')
 def ola():
-    for i in lista:
-        for y in i:
-            lista_um.append(y[2])
-            lista_dois.append(y[1])
-    return render_template('lista.html', titulo='Usuários', nomes=lista_dois, departamento=lista_um)
+    return render_template('lista.html', titulo='Usuários', nomes=teste)
 
 app.run(debug=True)
-'''
