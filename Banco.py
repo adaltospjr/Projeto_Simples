@@ -1,5 +1,3 @@
-#importanto Flask e psycopg2
-from flask import Flask, render_template
 import psycopg2
 import psycopg2.extras
 
@@ -51,33 +49,3 @@ conn.commit()
 
 #fechando a conexão com o banco
 conn.close()
-
-#criando uma classe usuário
-class Usuario:
-    def __init__(self):
-        self.nome = []
-        self.departamento = []
-
-    def set_usuario(self, pessoa):
-        for x in pessoa:
-            for y in x:
-                dicionario[y[1]] = y[2]
-            self.nome.append(dicionario)
-
-    def get_usuario(self):
-        return self.nome
-
-#instanciando a classe
-pessoa1 = Usuario()
-
-pessoa1.set_usuario(lista)
-teste = pessoa1.get_usuario()
-print(teste)
-
-app = Flask(__name__)
-
-@app.route('/')
-def ola():
-    return render_template('lista.html', titulo='Usuários', nomes=teste)
-
-app.run(debug=True)
