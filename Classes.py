@@ -1,4 +1,7 @@
-from Banco import lista, dicionario
+from Banco import lista
+
+#declarando um dicionário vazio
+dicionario = {}
 
 #criando uma classe usuário
 class Usuarios:
@@ -17,5 +20,6 @@ class Usuarios:
 #instanciando a classe
 pessoa1 = Usuarios()
 
+#inserindo dados na pessoa1
 pessoa1.set_usuario(lista)
 teste = pessoa1.get_usuario()
