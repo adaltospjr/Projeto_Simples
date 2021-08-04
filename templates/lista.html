@@ -20,12 +20,10 @@
             </thead>
             <tbody>
             {% for nome in nomes %}
-            {% soma = 0 %}
                 <tr>
                     <td>{{ nome }}</td>
                     <td>{{ departamento[soma] }}</td>
                 </tr>
-            {% soma = soma + 1 %}
             {% endfor %}
         </table>
     </div>
