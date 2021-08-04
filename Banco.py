@@ -1,5 +1,6 @@
 import psycopg2
 import psycopg2.extras
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 #definindo as configurações do banco de dados
 host = "localhost"
@@ -15,7 +16,16 @@ conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
 #realizando a conexão com o banco e atribuindo essa conexão para a variavel teste
 teste = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-#cur.execute("CREATE TABLE student (id SERIAL PRIMARY KEY, name VARCHAR, departamento VARCHAR);")
+
+
+
+'''
+cur.execute("CREATE TABLE student  (id SERIAL PRIMARY KEY, name VARCHAR, curso VARCHAR);")
+cur.execute("CREATE TABLE student  (id SERIAL PRIMARY KEY, name VARCHAR, curso VARCHAR);")
+cur.execute("INSERT INTO empresa   (name, curso) VALUES (%s, %s)",("Igor", "Sistema de Informação"))
+cur.execute("INSERT INTO empresa   (name, curso) VALUES (%s, %s)",("Gabriela", "Big Data"))
+'''
+
 
 #criando a tabela empresa e definindo os campos
 #teste.execute("CREATE TABLE empresa  (id SERIAL PRIMARY KEY, name VARCHAR, departamento VARCHAR);")
@@ -34,9 +44,12 @@ teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Mauri
 teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Andreia", "RH"))
 teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Carlos", "ADM"))
 teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Igor", "BI"))
+teste.execute("INSERT INTO empresa (name, departamento) VALUES (%s, %s)",("Ronald", "Suporte"))
 '''
+
 #executando um select na tabela empresa
 teste.execute("SELECT * FROM empresa;")
+
 
 #inserindo a lista de informações na variável lista
 lista = [teste.fetchall()]

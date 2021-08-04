@@ -3,7 +3,7 @@ from Classes import teste
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/usuarios')
 def ola():
     return render_template('lista.html', titulo='Usuários', nomes=teste)
 
