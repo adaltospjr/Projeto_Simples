@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from Classes import teste, dicionario
+from Classes import dicionario
 
 app = Flask(__name__)
 

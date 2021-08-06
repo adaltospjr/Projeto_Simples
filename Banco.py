@@ -46,14 +46,9 @@ lista = [teste.fetchall()]
 #realizando um commit no banco de dados
 conn.commit()
 
-dicionario = {}
-
 for i in lista:
     for x in i:
         dicionario = {'nome': x[1], 'departamento': x[2]}
-
-with open('flask.json', 'w') as json_file:
-    json.dump(dicionario, json_file)
 
 #fechando a conexão com o banco
 conn.close()
