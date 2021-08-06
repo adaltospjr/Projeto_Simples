@@ -1,7 +1,6 @@
 import psycopg2
 import psycopg2.extras
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-import json
 
 #definindo as configurações do banco de dados
 host = "localhost"
@@ -48,16 +47,3 @@ conn.commit()
 
 #fechando a conexão com o banco
 conn.close()
-
-nome = []
-departamento = []
-
-for i in lista:
-    for x in i:
-        nome.append(x[1])
-        departamento.append(x[2])
-
-lista = dict(zip(nome, departamento))
-
-with open('dados.json', 'w') as json_file:
-    json.dump(lista, json_file, indent=4)
