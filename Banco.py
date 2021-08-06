@@ -46,9 +46,18 @@ lista = [teste.fetchall()]
 #realizando um commit no banco de dados
 conn.commit()
 
-for i in lista:
-    for x in i:
-        dicionario = {'nome': x[1], 'departamento': x[2]}
-
 #fechando a conexão com o banco
 conn.close()
+
+nome = []
+departamento = []
+
+for i in lista:
+    for x in i:
+        nome.append(x[1])
+        departamento.append(x[2])
+
+lista = dict(zip(nome, departamento))
+
+with open('dados.json', 'w') as json_file:
+    json.dump(lista, json_file, indent=4)

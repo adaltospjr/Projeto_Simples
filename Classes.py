@@ -1,4 +1,4 @@
-from Banco import lista
+from Banco import lista, dicionario
 
 #declarando um dicionário vazio
 dicionario = {}
