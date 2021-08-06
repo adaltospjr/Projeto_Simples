@@ -20,12 +20,10 @@
             </thead>
             <tbody>
             {% for nome in nomes %}
-                {% for x in nome %}
-                    <tr>
-                        <td>{{ x }}</td>
-                        <td>{{ nome[x] }}</td>
-                    </tr>
-                {% endfor %}
+                <tr>
+                    <td>{{ nome }}</td>
+                    <td>{{ nomes[nome] }}</td>
+                </tr>
             {% endfor %}
         </table>
     </div>
